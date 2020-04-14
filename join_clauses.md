@@ -31,11 +31,12 @@ GRE	Greece	        Fernando Santos
 
 1. You can combine the two steps into a single query with a JOIN.
 
-    SELECT *
-    FROM game JOIN goal ON (id=matchid)
+        SELECT *
+        FROM game JOIN goal ON (id=matchid)
 
 The FROM clause says to merge data from the goal table with that from the game table. The ON says how to figure out which rows in game go with which rows in goal - the matchid from goal must match id from game. (If we wanted to be more clear/specific we could say
-    ON (game.id=goal.matchid)
+        
+        ON (game.id=goal.matchid)
 
 The code below shows the player, teamid, stadium and mdate for every German goal.
 
@@ -45,17 +46,17 @@ The code below shows the player, teamid, stadium and mdate for every German goal
 
 2. Show the name of all players who scored a goal against Germany.
 
-    SELECT DISTINCT player
-    FROM game JOIN goal ON matchid = id 
-    WHERE (team1='GER' OR team2='GER')
-    AND teamid <> 'GER'
+        SELECT DISTINCT player
+        FROM game JOIN goal ON matchid = id 
+        WHERE (team1='GER' OR team2='GER')
+        AND teamid <> 'GER'
 
 3. Show teamname and the total number of goals scored.
 
-    SELECT teamname, count(matchid)
-    FROM eteam JOIN goal ON id=teamid
-    GROUP BY teamid
-    ORDER BY teamname
+        SELECT teamname, count(matchid)
+        FROM eteam JOIN goal ON id=teamid
+        GROUP BY teamid
+        ORDER BY teamname
 
 4. List every match with the goals scored by each team as shown. This will use "CASE WHEN" which has not been explained in any previous exercises.
 

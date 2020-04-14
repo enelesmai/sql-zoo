@@ -13,9 +13,9 @@ Angola	    Africa	    1246700	    20609294	100990000000
 
 1. List the continents that have a total population of at least 100 million.
 
-    SELECT continent FROM 
-    (SELECT continent, SUM(population) population
-    FROM world
-    GROUP BY continent) tbl
-    WHERE population >= 100000000
+        SELECT continent FROM 
+        (SELECT continent, SUM(population) population
+        FROM world
+        GROUP BY continent) tbl
+        WHERE population >= 100000000
     
